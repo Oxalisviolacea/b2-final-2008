@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'As a visitor', type: :feature do
   describe "When I visit a doctor's show page" do
     before(:each) do
-      @hospital_1 = Hospital.create!(name: 'Denver Health')
-      @doctor_1 = Doctor.create!(name: 'Alex', specialty: 'Emergency Medicine', university: 'Seattle State', hospital_id: @hospital_1.id)
-      @doctor_2 = Doctor.create!(name: 'Hanna', specialty: 'Pediatrics', university: 'Western Colorado State', hospital_id: @hospital_1.id)
-      @patient_1 = @doctor_1.patients.create!(name: 'Tim', age: 50)
-      @patient_2 = @doctor_1.patients.create!(name: 'Brian', age: 60)
-      @patient_3 = @doctor_2.patients.create!(name: 'Meg', age: 60)
+      @hospital_1 = Hospital.create!(name: 'Grey Sloan Memorial Hospital')
+      @doctor_1 = Doctor.create!(name: 'Meredith Grey', specialty: 'General Surgery', university: 'Harvard University', hospital_id: @hospital_1.id)
+      @doctor_2 = Doctor.create!(name: 'Alex Karev', specialty: 'Pediatric Surgery', university: 'Johns Hopkins University', hospital_id: @hospital_1.id)
+      @patient_1 = @doctor_1.patients.create!(name: 'Katie Bryce', age: 24)
+      @patient_2 = @doctor_1.patients.create!(name: 'Denny Duquette', age: 39)
+      @patient_3 = @doctor_2.patients.create!(name: 'Rebecca Pope', age: 32)
     end
 
     it "I see all of that doctor's information, hospital they work for, and names of patients" do
