@@ -19,6 +19,7 @@ RSpec.describe 'As a visitor', type: :feature do
 
       expect(page).to have_content(@doctor_1.university)
       expect(page).to have_content(@doctor_2.university)
+      
       # universities should only appear once
       expect(page).to have_content(@doctor_3.university, count: 1)
     end

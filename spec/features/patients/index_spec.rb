@@ -14,6 +14,7 @@ RSpec.describe 'As a visitor', type: :feature do
 
     it 'I can see all of the patients listed oldest to youngest' do
       visit "/patients"
+      
       expect("#{@patient_2.name}").to appear_before("#{@patient_3.name}")
       expect("#{@patient_3.name}").to appear_before("#{@patient_1.name}")
       expect("#{@patient_1.name}").to appear_before("#{@patient_4.name}")
