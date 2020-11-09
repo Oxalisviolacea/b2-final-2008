@@ -1,6 +1,6 @@
 class Hospital < ApplicationRecord
   validates_presence_of :name
-  has_many :doctors
+  has_many :doctors, dependent: :destroy
 
   def doctor_count
     self.doctors.count
