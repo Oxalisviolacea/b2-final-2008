@@ -30,7 +30,7 @@ RSpec.describe 'As a visitor', type: :feature do
       end
     end
 
-    it 'I can remove a relationship between doctor and patient' do
+    it 'I can remove a patient (by removing the relationship between doctor and patient)' do
       visit "/doctors/#{@doctor_1.id}"
 
       within("#patient-#{@patient_1.id}") do
@@ -39,6 +39,8 @@ RSpec.describe 'As a visitor', type: :feature do
     
       expect(current_path).to eq("/doctors/#{@doctor_1.id}")
 
+      expect(page).to_not have_content(@patient_1.name)
+      
       # the patient should still exist
       Patient.find(@patient_1.id)
     end
